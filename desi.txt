@@ -1,0 +1,9 @@
+ALTER TABLE Students
+ADD login VARCHAR(150);
+UPDATE Students
+SET login = CONCAT(
+    LOWER(LEFT(full_name, 1)),                      
+    '.',
+    LOWER(SUBSTRING_INDEX(full_name, ' ', -1)),     
+    grade                                          
+);
